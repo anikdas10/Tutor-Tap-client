@@ -10,7 +10,7 @@ const Registration = () => {
     const { createUser, updateUserProfile ,setUser,googleLogin} = UseAuth();
     // console.log(createUser);
     const handleSignUp = async e =>{
-        e.preventDefault();
+        // e.preventDefault();
         const form = e.target;
         const formData = Object.fromEntries(new FormData(form))
        

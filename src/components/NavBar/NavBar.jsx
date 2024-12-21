@@ -13,21 +13,25 @@ import logo from "./../../assets/images/tutor-removebg-preview.png"
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { CiDark, CiLight } from "react-icons/ci";
 import UseAuth from "../customHook/UseAuth";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const {user} = UseAuth();
+  const {user,logOutUser} = UseAuth();
 
-//   const handleLogout = () => {
-//     signOut(auth).then(() => {
-//       Swal.fire({
-//         title: "Log out Successful",
-//         icon: "success",
-//         confirmButtonText: "Close",
-//       });
-//     });
-//   };
+  const handleLogout = async() => {
+   try{
+     await logOutUser()
+     Swal.fire({
+       title: "Log out Successful",
+       icon: "success",
+       confirmButtonText: "Close",
+     });
+   }catch(err){
+    console.log(err);
+   }
+  };
 
-//   console.log(user?.photoURL);
+  console.log(user?.photoURL);
 
   return (
     <div className="bg-white fixed w-full top-0 left-0 z-50 py-2 border-b shadow-md">
@@ -88,6 +92,7 @@ const Navbar = () => {
                 }`}
               >
                 <img
+                  referrerPolicy="no-referrer"
                   src={user?.photoURL}
                   className="rounded-full h-full w-full"
                   alt="profile"
