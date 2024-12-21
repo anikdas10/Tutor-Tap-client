@@ -1,15 +1,9 @@
 
-
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { RiMenu3Fill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
-
 import logo from "./../../assets/images/tutor-removebg-preview.png"
-// import { AuthContext } from "../../assets/AuthProvider/AuthProvider";
-// import { signOut } from "firebase/auth";
-// import { auth } from "../../assets/firebase/firebase.config";
-// import Swal from "sweetalert2";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { CiDark, CiLight } from "react-icons/ci";
 import UseAuth from "../customHook/UseAuth";
@@ -63,7 +57,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="text-lg">
-              <NavLink to="/addEquipment" onClick={() => setOpen(false)}>
+              <NavLink to="/addTutorials" onClick={() => setOpen(false)}>
                 Add Tutorials
               </NavLink>
             </li>
