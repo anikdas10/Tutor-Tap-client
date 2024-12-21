@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Registration = () => {
     const [err,setErr] = useState('');
 
-    const { createUser, updateUserProfile ,setUser} = UseAuth();
+    const { createUser, updateUserProfile ,setUser,googleLogin} = UseAuth();
     // console.log(createUser);
     const handleSignUp = async e =>{
         e.preventDefault();
@@ -52,9 +52,23 @@ const Registration = () => {
             console.log(err);
             setErr("The Email is already in Used. Please try to use another Email.")
         }
+    }
 
+    // google login
 
+    const handleGoogleSignIn = async ()=>{
+        try {
+            await googleLogin()
+             Swal.fire({
+               title: "Login Successful!",
 
+               icon: "success",
+             });
+        }
+        catch(err){
+            console.log(err);
+            setErr("Something Went Wrong!!")
+        }
     }
 
     return (
@@ -70,7 +84,8 @@ const Registration = () => {
             </p>
 
             <div className="my-6 space-y-4">
-              <button
+              <button 
+              onClick={handleGoogleSignIn}
                 aria-label="Login with Google"
                 type="button"
                 className="flex items-center justify-center w-full p-4  border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600 font-bold"
