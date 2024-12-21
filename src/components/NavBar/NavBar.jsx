@@ -12,10 +12,11 @@ import logo from "./../../assets/images/tutor-removebg-preview.png"
 // import Swal from "sweetalert2";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { CiDark, CiLight } from "react-icons/ci";
+import UseAuth from "../customHook/UseAuth";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const {user} = UseAuth();
 
-//   const { user, theme, toggleTheme } = useContext(AuthContext);
 //   const handleLogout = () => {
 //     signOut(auth).then(() => {
 //       Swal.fire({
@@ -78,7 +79,7 @@ const Navbar = () => {
               className="text-3xl cursor-pointer hidden lg:block"
             >
               {theme ? <CiDark /> : <CiLight />}
-            </li>
+            </li> */}
 
             {user && user?.email ? (
               <li
@@ -96,9 +97,9 @@ const Navbar = () => {
               </li>
             ) : (
               ""
-            )} */}
+            )}
 
-            {/* <li className="text-lg ">
+            <li className="text-lg ">
               {user ? (
                 <button
                   onClick={() => {
@@ -112,13 +113,13 @@ const Navbar = () => {
                   Login
                 </Link>
               )}
-            </li> */}
+            </li>
           </ul>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden z-50">
           <div className="text-xl md:text-2xl cursor-pointer font-bold text-white lg:hidden"></div>
-          {/* <div className={`w-8 h-8 cursor-pointer ${user ? "" : "hidden"}`}>
+          <div className={`w-8 h-8 cursor-pointer ${user ? "" : "hidden"}`}>
             {user && user?.email ? (
               <img
                 src={user?.photoURL}
@@ -130,7 +131,7 @@ const Navbar = () => {
             ) : (
               ""
             )}
-          </div> */}
+          </div>
           <div
             className=" cursor-pointer font-extrabold text-xl"
             onClick={() => setOpen(!open)}
