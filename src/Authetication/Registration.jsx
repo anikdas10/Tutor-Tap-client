@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "./../assets/images/Google_Icons-09-512-removebg-preview.png";
 import { useState } from "react";
 import UseAuth from "../components/customHook/UseAuth";
@@ -6,7 +6,10 @@ import Swal from "sweetalert2";
 
 const Registration = () => {
     const [err,setErr] = useState('');
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location.state);
+    const from = location?.state || "/";
     const { createUser, updateUserProfile ,setUser,googleLogin} = UseAuth();
     // console.log(createUser);
     const handleSignUp = async e =>{
@@ -47,6 +50,7 @@ const Registration = () => {
             
               icon: "success",
             });
+            navigate(from)
         }
         catch(err){
             console.log(err);
@@ -64,6 +68,7 @@ const Registration = () => {
 
                icon: "success",
              });
+             navigate(from);
         }
         catch(err){
             console.log(err);

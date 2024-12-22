@@ -15,12 +15,17 @@ const AddTutorials = () => {
 
     console.log(import.meta.env.VITE_SERVER_KEY);
     try {
-      axios.post(`${import.meta.env.VITE_SERVER_KEY}/tutors`, formData);
-      Swal.fire({
-        title: "Login Successful!",
+    const {data} = await  axios.post(`${import.meta.env.VITE_SERVER_KEY}/tutors`, formData);
+    // console.log(data);
+    if (data.insertedId)
+    {
+         Swal.fire({
+           title: "Login Successful!",
 
-        icon: "success",
-      });
+           icon: "success",
+         });
+    }
+     
     } catch (err) {
       console.log(err);
     }

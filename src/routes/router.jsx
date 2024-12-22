@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Authetication/Login";
 import Registration from "../Authetication/Registration";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -11,21 +12,25 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />,
       },
       {
-        path:"/login",
-        element:<Login/>
+        path: "/login",
+        element: <Login />,
       },
       {
-        path:'/signUp',
-        element:<Registration/>
+        path: "/signUp",
+        element: <Registration />,
       },
       {
-        path:"/addTutorials",
-        element:<AddTutorials/>
-      }
+        path: "/addTutorials",
+        element: (
+          <PrivateRoutes>
+            <AddTutorials />
+          </PrivateRoutes>
+        ),
+      },
     ],
   },
 ]);

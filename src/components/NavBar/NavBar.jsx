@@ -25,7 +25,7 @@ const Navbar = () => {
    }
   };
 
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
 
   return (
     <div className="bg-white fixed w-full top-0 left-0 z-50 py-2 border-b shadow-md">

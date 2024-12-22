@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "./../assets/images/Google_Icons-09-512-removebg-preview.png";
 import UseAuth from "../components/customHook/UseAuth";
 import { useState } from "react";
@@ -7,6 +7,11 @@ import Swal from "sweetalert2";
 const Login = () => {
   const [err, setErr] = useState("");
   const { loginUserWithPassword, googleLogin } = UseAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location.state);
+  const from = location?.state || '/';
+
   // login user with email and password
   const handleLoginUser = async (e) => {
     e.preventDefault();
@@ -23,6 +28,7 @@ const Login = () => {
 
         icon: "success",
       });
+      navigate(from);
     } catch (err) {
       console.log(err);
       setErr("Invalid Email or Password");
@@ -38,6 +44,7 @@ const Login = () => {
 
                icon: "success",
              });
+             navigate(from);
         }
         catch(err){
             console.log(err);
