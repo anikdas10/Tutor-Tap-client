@@ -1,14 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import UseAuth from "../customHook/UseAuth";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const TutorDetails = () => {
     const [tutor,setTutor] = useState([]);
-
+    const {user} = UseAuth();
     const {details} = useParams();
-    console.log(details)
-
+    // console.log(details)
+    const { name, description, photo, language, price, review,email,_id } = tutor;
     useEffect(()=>{
         handleTutorDetails();
     },[])
@@ -25,7 +28,32 @@ const TutorDetails = () => {
         }
     }
 
-    const {name,description,photo,language,price,review} = tutor;
+    const handleBookTutor = async()=>{
+        if(user?.email === email)
+        {
+            return toast.error("Tutor Can't book!!")
+        }
+        const tutorDetails = {tutorId:_id, photo,language,price,tutorEmail:email,userEmail:user?.email};
+        // console.log(tutorDetails);
+
+
+       try {
+         const { data } = await axios.post(
+           `${import.meta.env.VITE_SERVER_KEY}/booked-tutors`,
+           tutorDetails
+         );
+        //  console.log(data);
+         if (data.insertedId) {
+           Swal.fire({
+             title: "Tutor booking Successful!",
+
+             icon: "success",
+           });
+         }
+       } catch (err) {
+         console.log(err);
+       }
+    }
     return (
       <div className="mt-12 md:mt-16 lg:mt-20 container">
         <h2>Tutor Details</h2>
@@ -70,7 +98,7 @@ const TutorDetails = () => {
               </div>
             </div>
 
-            <button className="mt-6 px-6 py-3 bg-pink-500 text-white text-lg font-medium rounded-lg hover:bg-pink-600 transition">
+            <button onClick={handleBookTutor} className="mt-6 px-6 py-3 bg-pink-500 text-white text-lg font-medium rounded-lg hover:bg-pink-600 transition">
               Book trial lesson
             </button>
           </div>
