@@ -52,7 +52,7 @@ const Navbar = () => {
             </li>
 
             <li className="text-lg">
-              <NavLink to="/allEquipment" onClick={() => setOpen(false)}>
+              <NavLink to="/find-tutors" onClick={() => setOpen(false)}>
                 Find Tutors
               </NavLink>
             </li>

@@ -5,6 +5,7 @@ import Login from "../Authetication/Login";
 import Registration from "../Authetication/Registration";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import PrivateRoutes from "./PrivateRoutes";
+import FindTutors from "../Pages/FindTutors/FindTutors";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      {
+        path:"/find-tutors",
+        element:<FindTutors/>
+      }
     ],
   },
 ]);
