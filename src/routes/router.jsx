@@ -6,6 +6,7 @@ import Registration from "../Authetication/Registration";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import PrivateRoutes from "./PrivateRoutes";
 import FindTutors from "../Pages/FindTutors/FindTutors";
+import TutorDetails from "../components/TutorDetails/TutorDetails";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
       {
         path:"/find-tutors",
         element:<FindTutors/>
+      },
+      {
+        path:"/tutor/:details",
+        element:<PrivateRoutes>
+          <TutorDetails/>
+        </PrivateRoutes>
       }
     ],
   },
