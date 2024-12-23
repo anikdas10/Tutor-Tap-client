@@ -33,7 +33,7 @@ const TutorDetails = () => {
         {
             return toast.error("Tutor Can't book!!")
         }
-        const tutorDetails = {tutorId:_id, photo,language,price,tutorEmail:email,userEmail:user?.email};
+        const tutorDetails = {tutorId:_id, photo,language,price,tutorEmail:email,userEmail:user?.email,name};
         // console.log(tutorDetails);
 
 
@@ -69,7 +69,7 @@ const TutorDetails = () => {
               />
             </div>
             {/* Tutor Details */}
-            <div className="md:w-1/2">
+            <div className="md:w-3/5">
               <div className="flex items-center ">
                 <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
               </div>
