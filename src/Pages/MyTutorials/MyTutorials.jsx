@@ -102,7 +102,7 @@ const MyTutorials = () => {
                           >
                             <MdDeleteForever />
                           </button>
-                          <Link>
+                          <Link to={`/update/${tutor?._id}`}>
                             <button className="text-sm">
                               <FaRegPenToSquare />
                             </button>
