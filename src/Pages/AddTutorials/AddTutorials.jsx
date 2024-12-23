@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../components/customHook/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const AddTutorials = () => {
   const { user } = UseAuth();
-
+  const navigate = useNavigate();
   const handleAdd = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = Object.fromEntries(new FormData(form));
     formData.review = 0;
-    // console.log(formData);
-
-    console.log(import.meta.env.VITE_SERVER_KEY);
+  
     try {
     const {data} = await  axios.post(`${import.meta.env.VITE_SERVER_KEY}/tutors`, formData);
     // console.log(data);
@@ -24,6 +22,7 @@ const AddTutorials = () => {
 
            icon: "success",
          });
+         navigate("/my-tutorials")
     }
      
     } catch (err) {

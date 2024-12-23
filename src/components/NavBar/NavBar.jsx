@@ -63,7 +63,7 @@ const Navbar = () => {
             </li>
 
             <li className="text-lg">
-              <NavLink to="/myEquipment" onClick={() => setOpen(false)}>
+              <NavLink to="/my-tutorials" onClick={() => setOpen(false)}>
                 My Tutorials
               </NavLink>
             </li>

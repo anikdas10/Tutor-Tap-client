@@ -12,6 +12,7 @@ const FindTutors = () => {
           .then(res => setTutors(res.data))
           .catch(err => console.error(err));
     },[])
+    console.log(tutors);
     return (
         <div className="mt-12 md:mt-16 lg:mt-20 container">
             <h2>Find Tutors</h2>

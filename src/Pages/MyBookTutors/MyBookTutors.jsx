@@ -76,22 +76,22 @@ const MyBookTutors = () => {
                   {tutors.map((tutor) => (
                     <tr 
                     key={tutor._id}
-                    className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50 mt-4">
-                      <td className=" border w-16 md:w-24 lg:w-32 h-16 md:h-24 lg:h-32">
+                    className="border border-opacity-20 dark:border-gray-300 dark:bg-gray-50 shadow-md ">
+                      <td className=" w-16 md:w-24 lg:w-32 h-16 md:h-24 lg:h-32">
                         <img src={tutor?.photo} alt="" className="w-full h-full rounded-full" />
                       </td>
-                      <td className="p-3 border text-center md:text-lg">
+                      <td className="p-3 text-center md:text-lg">
                         <p>{tutor?.name}</p>
                       </td>
 
-                      <td className="p-3 border text-center md:text-lg">
+                      <td className="p-3 text-center md:text-lg">
                         <p>{tutor?.language}</p>
                         
                       </td>
-                      <td className="p-3 text-center border md:text-lg">
+                      <td className="p-3 text-center md:text-lg">
                         <p>BDT {tutor?.price}</p>
                       </td>
-                      <td className="p-3 text-center border md:text-lg">
+                      <td className="p-3 text-center md:text-lg">
                         <button onClick={()=>handleReview(tutor?.tutorId)} className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50 text-center">
                           <span>Review</span>
                         </button>
