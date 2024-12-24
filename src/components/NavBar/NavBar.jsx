@@ -10,7 +10,7 @@ import UseAuth from "../customHook/UseAuth";
 import Swal from "sweetalert2";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const {user,logOutUser} = UseAuth();
+  const {user,logOutUser,theme,setTheme} = UseAuth();
 
   const handleLogout = async() => {
    try{
@@ -25,10 +25,14 @@ const Navbar = () => {
    }
   };
 
-  // console.log(user?.photoURL);
+  console.log(theme);
 
   return (
-    <div className="bg-white fixed w-full top-0 left-0 z-50 py-2 border-b shadow-md">
+    <div
+      className={` fixed w-full top-0 left-0 z-50  border-b shadow-md backdrop-blur-2xl transition-colors ${
+        theme && "bg-[#0B1120] text-white border-gray-400"
+      }`}
+    >
       <nav className="container flex items-center justify-between relative ">
         <Link to="/">
           <div className="flex items-center">
@@ -40,11 +44,16 @@ const Navbar = () => {
         </Link>
 
         <div
-          className={` absolute top-11 container px-2 mx-auto flex  justify-center backdrop-blur-sm duration-1000 rounded-md py-4  bg-opacity-60 lg:static  lg:w-auto lg:mx-0 ${
-            open ? "left-0 right-0" : "left-[800px]"
-          }`}
+          className={` absolute top-11 container px-2 mx-auto flex  justify-center w-full   bg-[#0B1120]/80 duration-1000   rounded-md py-4 lg:static  lg:w-auto lg:mx-0 lg:bg-transparent ${
+            theme && ""
+          } ${open ? " left-0 right-0 " : "left-[800px]"}`}
         >
-          <ul className="flex items-center flex-col lg:flex-row gap-2 lg:gap-5 text-black">
+          <ul
+            className={`flex  
+              
+              items-center flex-col lg:flex-row gap-2 lg:gap-5 lg:text-
+               ${theme ? "text-white " : "text-black"}`}
+          >
             <li className="text-lg">
               <NavLink to="/" onClick={() => setOpen(false)}>
                 Home
@@ -72,12 +81,12 @@ const Navbar = () => {
                 My booked tutors
               </NavLink>
             </li>
-            {/* <li
-              onClick={toggleTheme}
-              className="text-3xl cursor-pointer hidden lg:block"
+            <li
+              onClick={() => setTheme(!theme)}
+              className="text-3xl cursor-pointer md:hidden lg:block"
             >
               {theme ? <CiDark /> : <CiLight />}
-            </li> */}
+            </li>
 
             {user && user?.email ? (
               <li
@@ -101,6 +110,7 @@ const Navbar = () => {
             <li className="text-lg ">
               {user ? (
                 <button
+                  className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium text-lg py-2 px-6 rounded-md "
                   onClick={() => {
                     setOpen(false), handleLogout();
                   }}
@@ -108,7 +118,11 @@ const Navbar = () => {
                   Log Out
                 </button>
               ) : (
-                <Link onClick={() => setOpen(false)} to="/login">
+                <Link
+                  onClick={() => setOpen(false)}
+                  to="/login"
+                  className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium text-lg py-2 px-6 rounded-md "
+                >
                   Login
                 </Link>
               )}
@@ -117,7 +131,12 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden z-50">
-          <div className="text-xl md:text-2xl cursor-pointer font-bold text-white lg:hidden"></div>
+          <div
+            onClick={() => setTheme(!theme)}
+            className="text-xl md:text-2xl cursor-pointer font-bold  lg:hidden"
+          >
+            {theme ? <CiDark /> : <CiLight />}
+          </div>
           <div className={`w-8 h-8 cursor-pointer ${user ? "" : "hidden"}`}>
             {user && user?.email ? (
               <img
@@ -154,3 +173,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

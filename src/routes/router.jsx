@@ -10,6 +10,7 @@ import TutorDetails from "../components/TutorDetails/TutorDetails";
 import MyBookTutors from "../Pages/MyBookTutors/MyBookTutors";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import UpdateTutorial from "../Pages/UpdateTutorial/UpdateTutorial";
+import TutorsByCategory from "../Pages/TutorsByCategory/TutorsByCategory";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/find-tutors",
         element: <FindTutors />,
+      },
+      {
+        path: "/find-tutors/:category",
+        element: <TutorsByCategory/>,
       },
       {
         path: "/tutor/:details",

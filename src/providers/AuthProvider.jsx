@@ -7,6 +7,7 @@ const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [theme,setTheme] = useState(true);
   // create User with email and password
 
   const createUser = (email, password) => {
@@ -62,7 +63,8 @@ const loginUserWithPassword = (email,password) =>{
     updateUserProfile,
     googleLogin,
     logOutUser,
-    loginUserWithPassword
+    loginUserWithPassword,
+    theme,setTheme
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

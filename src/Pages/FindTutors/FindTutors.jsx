@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TutorCard from "../../components/TutorCard/TutorCard";
+import UseAuth from "../../components/customHook/UseAuth";
+
 
 
 const FindTutors = () => {
     const [tutors,setTutors] = useState([]);
+
+    const {theme} = UseAuth();
 
     useEffect(()=>{
         axios
@@ -14,14 +18,16 @@ const FindTutors = () => {
     },[])
     console.log(tutors);
     return (
-        <div className="mt-12 md:mt-16 lg:mt-20 container">
-            <h2>Find Tutors</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {
-                    tutors.map(tutor=><TutorCard key={tutor._id} tutor={tutor}/>)
-                }
-            </div>
+      <div className={`pt-12 md:pt-16 lg:pt-20 ${theme && "bg-[#0F172A] text-white"}`}>
+        <div className=" container">
+          <h2>Find Tutors</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {tutors.map((tutor) => (
+              <TutorCard key={tutor._id} tutor={tutor} />
+            ))}
+          </div>
         </div>
+      </div>
     );
 };
 

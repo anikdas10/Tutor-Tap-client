@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+ .active { 
+       background: linear-gradient(90deg, #a855f7, #3b82f6);
+      text-decoration: none;
+      color: transparent;
+      background-clip: text;
+    }

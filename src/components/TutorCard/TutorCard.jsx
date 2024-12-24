@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
+import UseAuth from "../customHook/UseAuth";
 
 
 const TutorCard = ({tutor}) => {
-    console.log(tutor);
+  const {theme} = UseAuth();
+    // console.log(tutor);
     const { name, photo, language, review, description,_id } = tutor;
     return (
-      <div className=" p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+      <div
+        className={`p-6 rounded-md shadow-md border ${
+          theme && "bg-[#0B1120] border-gray-700"
+        }`}
+      >
         <img
           src={photo}
           alt=""
@@ -37,7 +43,7 @@ const TutorCard = ({tutor}) => {
           <Link to={`/tutor/${_id}`}>
             <button
               type="button"
-              className="px-4 py-1 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:shadow-md ease-in-out duration-300 transition-transform transform hover:scale-105"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium text-lg py-2 px-6 rounded-md shadow-md hover:shadow-lg transition duration-300"
             >
               Details
             </button>
