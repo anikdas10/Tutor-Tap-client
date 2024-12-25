@@ -6,7 +6,7 @@ import UseAuth from '../customHook/UseAuth';
 const Category = () => {
     const {theme} = UseAuth();
     return (
-      <div className="container grid grid-cols-2 md:grid-cols-3  gap-2 my-16">
+      <div className="container grid grid-cols-2 md:grid-cols-3  gap-2 py-16">
         <h2
           className={`col-span-2 md:col-span-3 text-center font-bold text-xl md:text-2xl lg:text-3xl mb-3 ${
             theme && "text-white"

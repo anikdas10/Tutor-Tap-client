@@ -10,7 +10,7 @@ const TutorsByCategory = () => {
     const {theme} = UseAuth();
 
     const { category } = useParams();
-    console.log(category);
+    // console.log(category);
 
     useEffect(() => {
       const loadingData= async ()=>{
@@ -27,7 +27,7 @@ const TutorsByCategory = () => {
       }
       loadingData();
     }, []);
-    console.log(tutors);
+    // console.log(tutors);
     return (
       <div
         className={`${

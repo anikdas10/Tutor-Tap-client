@@ -77,7 +77,7 @@ const Registration = () => {
     }
 
     return (
-      <div className={`${theme && "bg-[#0F172A] text-white"}`}>
+      <div className={`${theme && "bg-[#0F172A] text-white"} pt-16 md:pt-20 lg:pt-24`}>
         <div className="flex items-center justify-center min-h-[calc(100vh-306px)] py-12 ">
           <div className=" w-full max-w-lg overflow-hidden rounded-lg shadow-lg  border  mx-auto ">
             <div className="w-full px-6 py-8 md:px-8">

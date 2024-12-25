@@ -53,7 +53,7 @@ const Login = () => {
     }
 
   return (
-    <div className={`pt-12 md:pt-16 lg:pt-20 ${theme && "bg-[#0F172A] text-white h-screen"}`}>
+    <div className={`pt-12 md:pt-16 lg:pt-20 ${theme && "bg-[#0F172A] text-white "}`}>
       <div className="w-full max-w-lg p-4 rounded-md  sm:p-8 dark:bg-gray-50 dark:text-gray-800 mx-auto shadow-lg border">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account

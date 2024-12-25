@@ -11,11 +11,13 @@ import MyBookTutors from "../Pages/MyBookTutors/MyBookTutors";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import UpdateTutorial from "../Pages/UpdateTutorial/UpdateTutorial";
 import TutorsByCategory from "../Pages/TutorsByCategory/TutorsByCategory";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement:<Error/>,
     children: [
       {
         path: "/",

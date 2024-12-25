@@ -85,7 +85,7 @@ const Navbar = () => {
               onClick={() => setTheme(!theme)}
               className="text-3xl cursor-pointer md:hidden lg:block"
             >
-              {theme ? <CiDark /> : <CiLight />}
+              {theme ? <CiLight /> : <CiDark />}
             </li>
 
             {user && user?.email ? (
@@ -135,7 +135,7 @@ const Navbar = () => {
             onClick={() => setTheme(!theme)}
             className="text-xl md:text-2xl cursor-pointer font-bold  lg:hidden"
           >
-            {theme ? <CiDark /> : <CiLight />}
+            {theme ? <CiLight /> : <CiDark />}
           </div>
           <div className={`w-8 h-8 cursor-pointer ${user ? "" : "hidden"}`}>
             {user && user?.email ? (
