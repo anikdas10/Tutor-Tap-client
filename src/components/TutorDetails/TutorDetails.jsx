@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 import UseAuth from "../customHook/UseAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../customHook/UseAxiosSecure";
 
 
 const TutorDetails = () => {
     const [tutor,setTutor] = useState([]);
     const {user} = UseAuth();
     const {details} = useParams();
+    const axiosSecure = useAxiosSecure();
     // console.log(details)
     const { name, description, photo, language, price, review,email,_id } = tutor;
     useEffect(()=>{
@@ -38,8 +40,8 @@ const TutorDetails = () => {
 
 
        try {
-         const { data } = await axios.post(
-           `${import.meta.env.VITE_SERVER_KEY}/booked-tutors`,
+         const { data } = await axiosSecure.post(
+           `/booked-tutors`,
            tutorDetails
          );
         //  console.log(data);

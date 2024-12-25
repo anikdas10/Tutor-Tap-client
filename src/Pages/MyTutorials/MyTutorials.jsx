@@ -5,21 +5,23 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../components/customHook/UseAxiosSecure";
+
 
 const MyTutorials = () => {
      const [tutors, setTutors] = useState([]);
      const { user } = UseAuth();
+  const axiosSecure = useAxiosSecure();
 
      useEffect(() => {
        handleTutorDetails();
-     }, [tutors]);
+     }, []);
      const handleTutorDetails = async () => {
        try {
-         const { data } = await axios.get(
-           `${import.meta.env.VITE_SERVER_KEY}/tutors?email=${
+         const { data } = await axiosSecure.get(
+           `/tutors/${
              user?.email
-           }`
-         );
+           }`,);
          setTutors(data);
        } catch (err) {
          console.log(err);
@@ -39,7 +41,7 @@ const MyTutorials = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             try {
-              axios.delete(`${import.meta.env.VITE_SERVER_KEY}/tutors/${id}`);
+              axiosSecure.delete(`/tutors/${id}`);
               Swal.fire({
                 title: "Deleted!",
                 text: "Tutor has been deleted!",

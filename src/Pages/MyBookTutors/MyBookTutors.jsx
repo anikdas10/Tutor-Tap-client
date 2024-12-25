@@ -3,20 +3,23 @@ import UseAuth from "../../components/customHook/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../components/customHook/UseAxiosSecure";
+
 
 
 const MyBookTutors = () => {
 
     const [tutors,setTutors] = useState([]);
     const {user} = UseAuth();
+    const axiosSecure = useAxiosSecure();
 
      useEffect(() => {
        handleTutorDetails();
      }, []);
      const handleTutorDetails = async () => {
        try {
-         const { data } = await axios.get(
-           `${import.meta.env.VITE_SERVER_KEY}/booked-tutors?email=${user?.email}`
+         const { data } = await axiosSecure.get(
+           `/booked-tutors?email=${user?.email}`
          );
          setTutors(data);
        } catch (err) {
@@ -29,9 +32,9 @@ const MyBookTutors = () => {
     const handleReview =async id =>{
         console.log(id);
         try {
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_SERVER_KEY}/booked-tutors`,
-      { id }
+    const { data } = await axiosSecure.post(
+      `/booked-tutors`,
+      { id },
     );
     // console.log(data);
     if (data.insertedId)

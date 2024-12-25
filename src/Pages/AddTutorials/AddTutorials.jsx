@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../components/customHook/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../components/customHook/UseAxiosSecure";
 
 const AddTutorials = () => {
-  const { user } = UseAuth();
+  const { user ,theme} = UseAuth();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
   const handleAdd = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +15,7 @@ const AddTutorials = () => {
     formData.review = 0;
   
     try {
-    const {data} = await  axios.post(`${import.meta.env.VITE_SERVER_KEY}/tutors`, formData);
+    const {data} = await  axiosSecure.post(`/tutors`, formData);
     // console.log(data);
     if (data.insertedId)
     {
@@ -31,8 +33,16 @@ const AddTutorials = () => {
   };
 
   return (
-    <div className="mt-12 md:mt-16 lg:mt-20">
-      <div className=" w-full max-w-lg overflow-hidden bg-white rounded-lg shadow-lg  border  mx-auto ">
+    <div
+      className={`${
+        theme && "bg-[#0F172A] text-white"
+      } pt-12 md:pt-16 lg:pt-20`}
+    >
+      <div
+        className={`w-full max-w-lg overflow-hidden rounded-lg shadow-lg  border  mx-auto ${
+          theme && "bg-[#0B1120] border-gray-700"
+        }`}
+      >
         <div className="w-full px-6 py-8 md:px-8">
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  lg:w-1/4"></span>
@@ -57,7 +67,7 @@ const AddTutorials = () => {
                 name="name"
                 value={user?.displayName}
                 readOnly
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                className="block w-full px-4 py-2 text-gray-700 border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="text"
               />
             </div>
@@ -69,7 +79,6 @@ const AddTutorials = () => {
                 Email
               </label>
               <input
-                
                 name="email"
                 value={user?.email}
                 readOnly
@@ -85,7 +94,6 @@ const AddTutorials = () => {
                 Image
               </label>
               <input
-                
                 name="photo"
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="text"
@@ -149,7 +157,8 @@ const AddTutorials = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                className="w-full px-6 py-3 text-sm md:text-lg font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white
+                rounded-lg "
               >
                 Add
               </button>

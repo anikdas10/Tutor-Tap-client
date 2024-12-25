@@ -3,6 +3,7 @@ import TutorCard from '../../components/TutorCard/TutorCard';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import UseAuth from '../../components/customHook/UseAuth';
+import { VscLightbulb } from 'react-icons/vsc';
 
 const TutorsByCategory = () => {
     const [tutors, setTutors] = useState([]);
@@ -12,10 +13,19 @@ const TutorsByCategory = () => {
     console.log(category);
 
     useEffect(() => {
-      axios
-        .get(`${import.meta.env.VITE_SERVER_KEY}/tutors?category=${category}`)
-        .then((res) => setTutors(res.data))
-        .catch((err) => console.error(err));
+      const loadingData= async ()=>{
+      try{
+        const {data}=await  axios
+          .get(
+            `${import.meta.env.VITE_SERVER_KEY}/tutors?category=${category}`
+          )
+          setTutors(data)
+        }
+      catch(err){
+        console.log(err);
+      }          
+      }
+      loadingData();
     }, []);
     console.log(tutors);
     return (

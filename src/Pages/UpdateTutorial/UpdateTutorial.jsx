@@ -3,13 +3,15 @@ import UseAuth from "../../components/customHook/UseAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../components/customHook/UseAxiosSecure";
 
 const UpdateTutorial = () => {
     const [tutor,setTutor] = useState([]);
     const navigate = useNavigate();
     const {user} = UseAuth();
     const {id} = useParams();
-    console.log(id);
+    // console.log(id);
+    const axiosSecure = useAxiosSecure();
 
 
     const {description, photo, language, price, review } = tutor;
@@ -18,8 +20,8 @@ const UpdateTutorial = () => {
     }, []);
     const handleTutorDetails = async () => {
       try {
-        const { data } = await axios.get(
-          `${import.meta.env.VITE_SERVER_KEY}/tutor/${id}`
+        const { data } = await axiosSecure.get(
+          `/tutor/${id}`
         );
         setTutor(data);
       } catch (err) {
@@ -38,8 +40,8 @@ const UpdateTutorial = () => {
 
         // update operation
          try {
-           const { data } = await axios.put(
-             `${import.meta.env.VITE_SERVER_KEY}/tutors/${id}`,
+           const { data } = await axiosSecure.put(
+             `/tutors/${id}`,
              formData
            );
            console.log(data);
