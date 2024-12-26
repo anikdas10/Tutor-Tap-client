@@ -51,7 +51,7 @@ const MyBookTutors = () => {
     return (
       <div
         className={`${
-          theme && "bg-[#0F172A] text-white"
+          theme && "bg-[#0F172A] text-white min-h-[calc(100vh-300px)]"
         } pt-12 md:pt-16 lg:pt-20`}
       >
         <div className=" container">

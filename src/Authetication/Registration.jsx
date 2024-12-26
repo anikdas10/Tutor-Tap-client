@@ -10,15 +10,15 @@ const Registration = () => {
     const location = useLocation();
     // console.log(location.state);
     const from = location?.state || "/";
-    const { createUser, updateUserProfile ,setUser,googleLogin,theme} = UseAuth();
+    const { createUser, updateUserProfile ,setUser,googleLogin,theme,user} = UseAuth();
     // console.log(createUser);
     const handleSignUp = async e =>{
-        // e.preventDefault();
+        e.preventDefault();
         const form = e.target;
         const formData = Object.fromEntries(new FormData(form))
        
         const {name,email,photo,password} = formData;
-        console.log(password);
+        // console.log(password);
 
         // password Validation
         const regexA = /^(?=.*[A-Z]).*$/;
@@ -42,7 +42,7 @@ const Registration = () => {
 
         try {
             const result = await createUser(email,password)
-            console.log(result)
+            // console.log(result)
             await updateUserProfile(name, photo)
             setUser({ ...result.user, photoURL: photo, displayName: name });
             Swal.fire({
@@ -53,9 +53,10 @@ const Registration = () => {
             navigate(from)
         }
         catch(err){
-            console.log(err);
+            // console.log(err);
             setErr("The Email is already in Used. Please try to use another Email.")
         }
+        // console.log(formData);
     }
 
     // google login
@@ -71,10 +72,12 @@ const Registration = () => {
              navigate(from);
         }
         catch(err){
-            console.log(err);
+            // console.log(err);
             setErr("Something Went Wrong!!")
         }
     }
+
+    console.log(user);
 
     return (
       <div
@@ -124,6 +127,7 @@ const Registration = () => {
                     <input
                       id="name"
                       placeholder="name"
+                      autoComplete="name"
                       name="name"
                       className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                       type="text"
@@ -139,6 +143,7 @@ const Registration = () => {
                     <input
                       id="photo"
                       placeholder="photo"
+                      autoComplete="photo"
                       name="photo"
                       className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                       type="text"
@@ -154,6 +159,7 @@ const Registration = () => {
                     <input
                       id="LoggingEmailAddress"
                       placeholder="email"
+                      autoComplete="email"
                       name="email"
                       className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                       type="email"

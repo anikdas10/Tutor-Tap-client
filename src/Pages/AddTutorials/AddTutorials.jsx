@@ -97,7 +97,9 @@ const AddTutorials = () => {
                 <input
                   name="photo"
                   required
-                  className="block w-full px-4 py-2 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                  className="block w-full px-4 py-2 border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  
+                  text-black
+                  focus:outline-none focus:ring focus:ring-blue-300"
                   type="text"
                   placeholder="Image"
                 />
@@ -125,6 +127,7 @@ const AddTutorials = () => {
                   <option>Chinese</option>
                   <option>Japanese</option>
                   <option>Arabic</option>
+                  <option>Italian</option>
                 </select>
               </div>
               <div className="mt-4">

@@ -49,6 +49,7 @@ const loginUserWithPassword = (email,password) =>{
     const unsubscribed = onAuthStateChanged(auth,async (currentUser) => {
       if(currentUser)
       {
+        console.log(currentUser);
         setUser(currentUser);
         const { data } = await axios.post(`${import.meta.env.VITE_SERVER_KEY}/jwt`,{email:currentUser?.email},{withCredentials:true})
         console.log(data);
