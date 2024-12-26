@@ -44,7 +44,7 @@ const {theme} = UseAuth();
  },[])
 
         const totalValue = tutors.reduce((sum, tutor) => sum + tutor.review, 0);
- console.log(userCount);
+//  console.log(userCount);
 
     return (
       <div className="container mt-16">

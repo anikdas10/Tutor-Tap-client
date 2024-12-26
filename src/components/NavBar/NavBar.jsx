@@ -25,7 +25,7 @@ const Navbar = () => {
    }
   };
 
-  console.log(theme);
+  // console.log(theme);
 
   return (
     <div

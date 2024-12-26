@@ -1,8 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project name : Tutortap 
 
-Currently, two official plugins are available:
+Live Link: https://tutortap-bd.web.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+key feature:
+1.User can login the website using both email password and google login
+2.ser can add tutor and he can delete and update his tutor.
+3.user can ser the tutor by category and he can find the specific language tutor by searching  .
+
+4.user can book tutor and review.
+
+
+There are several npm packages i have used
+1.Axios
+2.React-icons
+3.React hot toast
+4.React toolTip
+5.React Swiper
+6.Sweet Alert2
+7.env-var
+8.Firebase
