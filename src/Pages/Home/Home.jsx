@@ -4,6 +4,8 @@ import Slider from "../../components/Slider/Slider";
 import Category from "../../components/Category/Category";
 import UseAuth from "../../components/customHook/UseAuth";
 import TuitionTypes from "../../components/TutionTypes/TuitionTypes";
+import Stats from "../../components/Stats/Stats";
+import Subscribe from "../../components/Subscribe/Subscribe";
 
 
 const Home = () => {
@@ -12,9 +14,11 @@ const Home = () => {
     
     return (
       <div className={`${theme && "bg-[#0F172A]"}`}>
-        <Slider></Slider>
-        <Category></Category>
+        <Slider/>
+        <Stats/>
+        <Category/>
         <TuitionTypes/>
+        <Subscribe/>
       </div>
     );
 };

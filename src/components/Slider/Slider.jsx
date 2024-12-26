@@ -35,25 +35,25 @@ const Slider = () => {
           <SwiperSlide>
             <Slide
               image={bgimg1}
-              text="Get Your Web Development Projects Done in minutes"
+              text="Find the Perfect Tutor for Every Subject, Anytime!"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Slide
               image={bgimg2}
-              text="Get Your Graphics Design Projects Done in minutes"
+              text="Book. Learn. Succeed – Your Journey Starts Here!"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Slide
               image={bgimg3}
-              text="Start Your Digital Marketing Campaigns up n running"
+              text="Expert Tutors, Personalized Sessions, Proven Results!"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Slide
               image={bgimg4}
-              text="Start Your Digital Marketing Campaigns up n running"
+              text="Learning Made Easy – Connect with Top Tutors Now!"
             />
           </SwiperSlide>
         </Swiper>

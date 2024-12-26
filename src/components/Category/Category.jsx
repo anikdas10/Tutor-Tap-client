@@ -3,6 +3,16 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import UseAuth from '../customHook/UseAuth';
 
+import img1 from "./../../assets/images/icons/clock-tower.png"
+import img2 from "./../../assets/images/icons/building-tower.png"
+import img3 from "./../../assets/images/icons/landmark.png"
+import img4 from "./../../assets/images/icons/condominium.png"
+import img5 from "./../../assets/images/icons/skyscraper.png"
+import img6 from "./../../assets/images/icons/building.png"
+import img7 from "./../../assets/images/icons/jesus.png"
+import img8 from "./../../assets/images/icons/parthenon.png"
+import img9 from "./../../assets/images/icons/poland.png"
+
 const Category = () => {
     const {theme} = UseAuth();
     return (
@@ -24,6 +34,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img1} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">English tutors</h2>
@@ -44,6 +55,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img2} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">Spanish tutors</h2>
@@ -63,6 +75,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img3} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">French tutors</h2>
@@ -82,6 +95,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img4} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">German tutors</h2>
@@ -101,6 +115,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img5} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">Italian tutors</h2>
@@ -120,6 +135,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img6} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">Bangla tutors</h2>
@@ -139,6 +155,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img7} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">Japanese tutors</h2>
@@ -158,6 +175,7 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img8} alt="" className="w-full h-full" />
               </div>
               <div>
                 <h2 className="text-sm font-semibold">Portugal tutors</h2>
@@ -177,11 +195,10 @@ const Category = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 {/* Replace with your icon */}
+                <img src={img9} alt="" className="w-full h-full" />
               </div>
               <div>
-                <h2 className="text-sm font-semibold">
-                  Arabic tutors
-                </h2>
+                <h2 className="text-sm font-semibold">Arabic tutors</h2>
               </div>
             </div>
             <div className="text-lg">
