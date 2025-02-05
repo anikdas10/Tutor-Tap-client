@@ -41,7 +41,7 @@ Ensure you have **Node.js** and **npm** installed.
 
 ### 2️⃣ Clone the Repository
 ```sh
-git clone https://github.com/your-username/tutortap.git
+git clone https://github.com/anikdas10/Tutor-Tap-client.git
 cd tutortap
 ```
 
